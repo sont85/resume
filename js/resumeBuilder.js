@@ -11,8 +11,8 @@
     skills: ["HTML5", "jQuery", "CSS3", "Angular JS", "Node JS", "Bootstrap"],
     biopic: "images/fry.jpg",
     display: function() {
-      var arrayHTML = []
-      arrayHTML.push(HTMLheaderName.replace("%data%", bio.name))
+      var arrayHTML = [];
+      arrayHTML.push(HTMLheaderName.replace("%data%", bio.name));
       arrayHTML.push(HTMLheaderRole.replace("%data%", bio.role));
       $("#header").prepend(arrayHTML);
 
@@ -53,7 +53,7 @@
     display: function(){
       var arrayHTML = [];
       if (work.jobs.length > 0) {
-        for (job in work.jobs) {
+        for (var job in work.jobs) {
           arrayHTML.push(HTMLworkStart.replace("%data%", "WORK START"));
           arrayHTML.push(HTMLworkEmployer.replace("%data%", work.jobs[job].employer));
           arrayHTML.push(HTMLworkTitle.replace("%data%", work.jobs[job].title));
@@ -61,10 +61,10 @@
           arrayHTML.push(HTMLworkLocation.replace("%data%", work.jobs[job].location));
           arrayHTML.push(HTMLworkDescription.replace("%data%", work.jobs[job].description));
         }
-        $("#workExperience").append(arrayHTML)
+        $("#workExperience").append(arrayHTML);
       }
     }
-  }
+  };
 
   var projects = {
     project: [{
@@ -84,9 +84,9 @@
           arrayHTML.push(HTMLprojectImage.replace("%data%", image));
         });
         $("#projects").append(arrayHTML);
-      })
+      });
     }
-  }
+  };
 
   var education = {
     schools: [{
@@ -113,7 +113,7 @@
         arrayHTML.push(HTMLschoolLocation.replace("%data%", school.location));
         school.majors.forEach(function(major) {
           arrayHTML.push(HTMLschoolMajor.replace("%data%", major));
-        })
+        });
         $("#education").append(arrayHTML);
       });
 
@@ -125,21 +125,21 @@
         arrayHTML.push(HTMLonlineDates.replace("%data%", course.date));
         arrayHTML.push(HTMLonlineURL.replace("%data%", course.url));
         $("#education").append(arrayHTML);
-      })
+      });
     }
-  }
+  };
 
   var mapping = {
     display: function() {
       $("#mapDiv").append(googleMap);
     }
-  }
+  };
 
 
   $(document).ready(function() {
-    bio.display()
-    work.display()
+    bio.display();
+    work.display();
     projects.display();
     education.display();
     mapping.display();
-  })
+  });
